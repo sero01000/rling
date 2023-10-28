@@ -30,17 +30,23 @@ jobs:
       run: |
         cd D:/a/rling/
         pwd
+        echo ===========
         ls
+        echo ===========
     - name: ls-pwshll
       run: |
+        dir
+        echo ===========
         cd D:/a/rling/
         pwd
-        ls
+        echo ===========
+        dir
+        echo ===========
     - name: CI-Build
       # shell: msys2 {0}
       # id: build
       run: |
-        cd D:/a/rling/
+        cd D:/a/rling/rling
         make
       # cd ${{ github.workspace }}
       # cd /C/_
