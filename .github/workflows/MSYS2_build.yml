@@ -18,15 +18,24 @@ jobs:
       uses: msys2/setup-msys2@v2
       with:
         # Variant of the environment to set by default: MSYS, MINGW32, MINGW64, UCRT64, CLANG32, CLANG64 or CLANGARM64
-        msystem: UCRT64 #MSYS | MINGW64 | MINGW32 | UCRT64 | CLANG32 | CLANG64 | CLANGARM64
+        # msystem: UCRT64 #MSYS | MINGW64 | MINGW32 | UCRT64 | CLANG32 | CLANG64 | CLANGARM64
         # Update MSYS2 installation through pacman
-        update: true
+        # update: true
         # After installation and/or update, install additional packages through pacman
         install: >-
           make
           gcc
-    - name: make
-      run: make
+    - name: CI-Build
+      shell: msys2 {0}
+      id: build
+      run: |
+        make
+      # cd /C/_
+      # unset VCPKG_ROOT
+      # pacman -S --needed --noconfirm ${MINGW_PACKAGE_PREFIX}-ntldd
+      # MINGW_ARCH=${{ matrix.msystem }} ./.ci/ci-build.sh
+    # - name: make
+    #   run: make
     - name: Publish release artifacts
       uses: actions/upload-artifact@v3
       with:
