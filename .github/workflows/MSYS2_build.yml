@@ -28,12 +28,12 @@ jobs:
     - name: ls-msys2
       shell: msys2 {0}
       run: |
-        cd cd D:/a/rling/
+        cd D:/a/rling/
         pwd
         ls
     - name: ls-pwshll
       run: |
-        cd cd D:/a/rling/
+        cd D:/a/rling/
         pwd
         ls
     - name: CI-Build
