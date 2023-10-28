@@ -23,7 +23,7 @@ jobs:
       # uses: egor-tensin/setup-cygwin@d2c752bab416d4b0662591bd366fc2686297c82d
       uses: egor-tensin/setup-cygwin@v4
       with:
-        packages: make mingw64-x86_64-gcc
+        packages: make mingw64-x86_64-gcc gcc
     - name: make
       run: make
     # - name: make check
