@@ -1,6 +1,13 @@
-name: C/C++ CI
+name: Cmake release
 
-on: [push]
+on:
+  release:
+    branches: [ "master" ]
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
 
 jobs:
   build:
@@ -16,10 +23,10 @@ jobs:
       uses: nicledomaS/cmake_build_action@v1.4
       with:
         config: ${{ matrix.configs }}
-        submodule_update: ON
+        submodule_update: OFF
         run_tests: OFF
         # unit_test_build: -DFIND_TESTS=ON
-        cmake_args: -DFIND_CONAN=ON;-DFIND_MODULES=ON;-DENABLE_TIDY=ON
+        # cmake_args: -DFIND_CONAN=ON;-DFIND_MODULES=ON;-DENABLE_TIDY=ON
         create_package: ON
     - uses: actions/upload-artifact@v2
       with:
