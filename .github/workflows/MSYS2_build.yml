@@ -37,7 +37,7 @@ jobs:
         pwd
         ls
     - name: CI-Build
-      shell: msys2 {0}
+      # shell: msys2 {0}
       # id: build
       run: |
         cd D:/a/rling/
