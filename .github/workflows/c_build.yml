@@ -15,7 +15,8 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@main
       - name: build application
-        run: make build
+        run: make
+        #clean #build
     # - uses: actions/upload-artifact@v2
     #   with:
     #     path: build/*.tar.gz
