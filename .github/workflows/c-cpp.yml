@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Cygwin Build
 
 on:
   release:
@@ -9,17 +9,39 @@ on:
     branches: [ "master" ]
 
 jobs:
+  
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
     # - name: configure
     #   run: ./configure
+    - name: Install Cygwin
+      # You may pin to the exact commit or the version.
+      # uses: egor-tensin/setup-cygwin@d2c752bab416d4b0662591bd366fc2686297c82d
+      uses: egor-tensin/setup-cygwin@v4
     - name: make
       run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    # - name: make check
+    #   run: make check
+    # - name: make distcheck
+    #   run: make distcheck
+
+# jobs:
+#   build:
+#     runs-on: ${{ matrix.os }}
+#     strategy:
+#       matrix:
+#         os: [ubuntu-latest, windows-latest]
+#         configs: [Release]
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2.0.0
+#     - name: Build project
+#       run: make
+#     - uses: actions/upload-artifact@v2
+#       with:
+#         path: build/*.tar.gz
+#         name: artifact_${{ matrix.os }}_${{ matrix.configs }}.tar.gz
