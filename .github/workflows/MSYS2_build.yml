@@ -28,17 +28,19 @@ jobs:
     - name: ls-msys2
       shell: msys2 {0}
       run: |
+        cd cd D:/a/rling/
         pwd
         ls
     - name: ls-pwshll
       run: |
+        cd cd D:/a/rling/
         pwd
         ls
     - name: CI-Build
       shell: msys2 {0}
       # id: build
       run: |
-        cd D:/a/rling/rling
+        cd D:/a/rling/
         make
       # cd ${{ github.workspace }}
       # cd /C/_
