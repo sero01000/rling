@@ -24,7 +24,7 @@ jobs:
         # After installation and/or update, install additional packages through pacman
         install: >-
           make
-          mingw-w64-gcc
+          gcc
     - name: make
       run: make
     - name: Publish release artifacts
