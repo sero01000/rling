@@ -27,15 +27,20 @@ jobs:
           gcc
     - name: ls-msys2
       shell: msys2 {0}
-      run: ls
+      run: |
+        pwd
+        ls
     - name: ls-pwshll
-      run: ls
+      run: |
+        pwd
+        ls
     - name: CI-Build
       shell: msys2 {0}
       # id: build
       run: |
-        cd ${{ github.workspace }}
+        cd D:/a/rling/rling
         make
+      # cd ${{ github.workspace }}
       # cd /C/_
       # unset VCPKG_ROOT
       # pacman -S --needed --noconfirm ${MINGW_PACKAGE_PREFIX}-ntldd
