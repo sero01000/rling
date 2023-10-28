@@ -34,6 +34,7 @@ jobs:
       shell: msys2 {0}
       # id: build
       run: |
+        cd ${{ github.workspace }}
         make
       # cd /C/_
       # unset VCPKG_ROOT
