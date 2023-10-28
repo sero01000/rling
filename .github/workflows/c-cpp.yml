@@ -26,6 +26,12 @@ jobs:
         packages: make mingw64-x86_64-gcc-core gcc-core
     - name: make
       run: make
+    - name: Publish release artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ github.event.repository.name }}-windows_x86_64
+        path: "*.exe"
+        if-no-files-found: warn
     # - name: make check
     #   run: make check
     # - name: make distcheck
