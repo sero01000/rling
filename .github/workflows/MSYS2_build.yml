@@ -12,6 +12,15 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: ls-pwshll
+      run: |
+        dir
+        echo ===========
+        cd D:/a/rling/rling
+        pwd
+        echo ===========
+        dir
+        echo ===========
     - name: Setup MSYS2
       # You may pin to the exact commit or the version.
       # uses: msys2/setup-msys2@76b1bed68bac51ebe46cb431077217d4b98e2b7b
@@ -24,11 +33,15 @@ jobs:
         # After installation and/or update, install additional packages through pacman
         install: >-
           make
-          gcc
+        # gcc
+        pacboy: >-
+          toolchain:p
+          gcc:p
+          
     - name: ls-msys2
       shell: msys2 {0}
       run: |
-        cd D:/a/rling/
+        cd D:/a/rling/rling
         pwd
         echo ===========
         ls
@@ -37,7 +50,7 @@ jobs:
       run: |
         dir
         echo ===========
-        cd D:/a/rling/
+        cd D:/a/rling/rling
         pwd
         echo ===========
         dir
