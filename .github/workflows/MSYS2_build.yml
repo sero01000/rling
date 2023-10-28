@@ -55,8 +55,8 @@ jobs:
         dir
         echo ===========
     - name: CI-Build
-      # shell: msys2 {0}
-      # id: build
+      shell: msys2 {0}
+      id: build
       run: |
         make
       # cd ${{ github.workspace }}
