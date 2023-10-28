@@ -25,9 +25,14 @@ jobs:
         install: >-
           make
           gcc
+    - name: ls-msys2
+      shell: msys2 {0}
+      run: ls
+    - name: ls-pwshll
+      run: ls
     - name: CI-Build
       shell: msys2 {0}
-      id: build
+      # id: build
       run: |
         make
       # cd /C/_
