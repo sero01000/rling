@@ -2,6 +2,7 @@ name: Cygwin Build
 
 on:
   release:
+    types: [created]
     branches: [ "master" ]
   push:
     branches: [ "master" ]
