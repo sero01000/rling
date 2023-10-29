@@ -17,8 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install Cygwin
-      # You may pin to the exact commit or the version.
-      # uses: egor-tensin/setup-cygwin@d2c752bab416d4b0662591bd366fc2686297c82d
       # uses: egor-tensin/setup-cygwin@v4
       uses: cygwin/cygwin-install-action@master
       with:
@@ -31,20 +29,11 @@ jobs:
         name: ${{ github.event.repository.name }}-windows_cygwin_x86_64
         path: "*.exe"
         if-no-files-found: warn
-
-# jobs:
-#   build:
-#     runs-on: ${{ matrix.os }}
-#     strategy:
-#       matrix:
-#         os: [ubuntu-latest, windows-latest]
-#         configs: [Release]
-#     steps:
-#     - name: Checkout
-#       uses: actions/checkout@v2.0.0
-#     - name: Build project
-#       run: make
-#     - uses: actions/upload-artifact@v2
-#       with:
-#         path: build/*.tar.gz
-#         name: artifact_${{ matrix.os }}_${{ matrix.configs }}.tar.gz
+      if: ${{ !startsWith( github.ref, 'refs/tags/v' ) }}
+    - name: Publish GitHub release
+      uses: softprops/action-gh-release@v1
+      with:
+        draft: true
+        files: "*.exe"
+        body_path: Changes.md
+      if: startsWith( github.ref, 'refs/tags/v' )
