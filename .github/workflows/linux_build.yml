@@ -22,9 +22,9 @@ jobs:
         with:
           name: ${{ github.event.repository.name }}-linux_x86_64
           path: |
-            */rling
-            */dedupe
-            */getpass
-            */rehex
-            */splitlen
+            rling
+            dedupe
+            getpass
+            rehex
+            splitlen
           if-no-files-found: warn
