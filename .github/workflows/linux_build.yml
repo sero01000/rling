@@ -2,6 +2,7 @@ name: Linux release
 
 on:
   release:
+    types: [created]
     branches: [ "master" ]
   push:
     branches: [ "master" ]
