@@ -28,3 +28,11 @@ jobs:
             rehex
             splitlen
           if-no-files-found: warn
+        if: ${{ !startsWith( github.ref, 'refs/tags/v' ) }}
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: rling
+          body_path: Changes.md
+        if: startsWith( github.ref, 'refs/tags/v' )
