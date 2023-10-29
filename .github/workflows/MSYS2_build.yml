@@ -63,9 +63,9 @@ jobs:
         with:
           release: false
           msystem: MSYS
-          update: true
+          update: false
           # install: make mingw-w64-ucrt-x86_64-gcc libc++
-          # install: make mingw-w64-x86_64-gcc gcc msys2-runtime-devel mingw-w64-x86_64-toolchain
-          install: make gcc mingw-w64-x86_64-toolchain
+          install: make mingw-w64-x86_64-gcc gcc msys2-runtime-devel mingw-w64-x86_64-toolchain
+          #install: make gcc mingw-w64-x86_64-toolchain
       - name: CI-Build
         run: make
