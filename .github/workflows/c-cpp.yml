@@ -16,26 +16,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    # - name: configure
-    #   run: ./configure
     - name: Install Cygwin
       # You may pin to the exact commit or the version.
       # uses: egor-tensin/setup-cygwin@d2c752bab416d4b0662591bd366fc2686297c82d
       uses: egor-tensin/setup-cygwin@v4
       with:
-        packages: make mingw64-x86_64-gcc-core gcc-core
+        packages: make mingw64-x86_64-gcc-core
     - name: make
       run: make
     - name: Publish release artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ github.event.repository.name }}-windows_x86_64
+        name: ${{ github.event.repository.name }}-windows_cygwin_x86_64
         path: "*.exe"
         if-no-files-found: warn
-    # - name: make check
-    #   run: make check
-    # - name: make distcheck
-    #   run: make distcheck
 
 # jobs:
 #   build:
